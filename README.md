@@ -1,3 +1,4 @@
+# Details step by step for crate role base authentication
 ## Permission-and-Role-Base-User-Management-System Using Laravel
 
 ## Purpose of this project 
@@ -8,6 +9,10 @@
 <p> 4) Role can be create based on Route </p>
 <p> 5) Update Role and Have CRUD Functionality</p>
 ..happy coding
+
+## Laravel 8 User Roles and Permissions Tutorial PDF
+
+https://github.com/MohosinMiah/Permission-and-Role-Base-User-Management-System/blob/main/Laravel%208%20User%20Roles%20and%20Permissions%20Tutorial%20-%20ItSolutionStuff.com.pdf
 
 ## Laravel 8 User Roles and Permissions Tutorial
 

@@ -25,6 +25,7 @@ composer require laravelcollective/html
 ```
 
 ### Now open config/app.php file and add service provider and aliase. 
+#### config/app.php
 ``` config/app.php
 'providers' => [
 
@@ -49,8 +50,8 @@ php artisan migrate
 ### Step 3: Create Models
 
 In this step we have to create model for User and Product table, so if you get fresh project then you have User Model have so just replace code and other you should create.
-
-```app/Models/User.php
+#### app/Models/User.php
+```
 <?php
   
 namespace App\Models;
@@ -100,12 +101,13 @@ class User extends Authenticatable
 ### Step 4: Add Middleware
 Spatie package provide it's in-built middleware that way we can use it simply and that is display as bellow:
 
-role
-permission
+<b>role</b>
+<b>permission</b>
 
 So, we have to add middleware in Kernel.php file this way :
 
-```app/Http/Kernel.php
+#### app/Http/Kernel.php
+```
 ....
 protected $routeMiddleware = [
     ....
@@ -131,12 +133,12 @@ php artisan ui bootstrap --auth
 ```
 Now you need to run npm command, otherwise you can not see better layout of login and register page.
 
-Install NPM:
+#### Install NPM:
 ```
 npm install
 ```
 
-Run NPM:
+#### Run NPM:
 ```
 npm run dev
 ```
@@ -144,7 +146,8 @@ npm run dev
 ### Step 6: Create Routes
 We require to add number of route for users module, products module and roles module. In this this route i also use middleware with permission for roles and products route, so add route this way:
 
-```routes/web.php
+#### routes/web.php
+```
 <?php
   
 use Illuminate\Support\Facades\Route;
@@ -152,7 +155,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
   
 /*
 |--------------------------------------------------------------------------
@@ -176,13 +178,14 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::resource('products', ProductController::class);
 });
 ```
 
 ### Step 7: Add Controllers
+In this step we have add three controller for users module, products module and roles module so you can create three controller like as bellow:
 
-```app/Http/Controllers/UserController.php
+#### app/Http/Controllers/UserController.php
+```
 <?php
     
 namespace App\Http\Controllers;
@@ -320,7 +323,8 @@ class UserController extends Controller
 }
 ```
 
-```app/Http/Controllers/RoleController.php
+#### app/Http/Controllers/RoleController.php
+```
 <?php
     
 namespace App\Http\Controllers;
@@ -463,25 +467,22 @@ class RoleController extends Controller
 ### Step 8: Add Blade Files
 In this step, we need to create following files as like listed bellow:
 
-Theme Layout
+<b>Theme Layout</b>
 
-app.blade.php
+<b>app.blade.php</b>
 
-Users Module
-
-index.blade.php create.blade.php edit.blade.php show.blade.php
-
-Roles Module
+<b>Users Module</b>
 
 index.blade.php create.blade.php edit.blade.php show.blade.php
 
-Product Module
+<b>Roles Module</b>
 
 index.blade.php create.blade.php edit.blade.php show.blade.php
+
 
 So, let's create following files:
-
-```resources/views/layouts/app.blade.php
+#### resources/views/layouts/app.blade.php
+```
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -560,7 +561,8 @@ So, let's create following files:
 </html>
 ```
 
-```resources/views/users/index.blade.php
+### resources/views/users/index.blade.php
+```
 @extends('layouts.app')
 
 
@@ -623,7 +625,8 @@ So, let's create following files:
 @endsection
 ```
 
-```resources/views/users/create.blade.php
+#### resources/views/users/create.blade.php
+```
 @extends('layouts.app')
 
 
@@ -696,7 +699,8 @@ So, let's create following files:
 @endsection
 ```
 
-```resources/views/users/edit.blade.php
+#### resources/views/users/edit.blade.php
+```
 @extends('layouts.app')
 
 
@@ -768,7 +772,8 @@ So, let's create following files:
 @endsection
 ```
 
-```resources/views/users/show.blade.php
+#### resources/views/users/show.blade.php
+```
 @extends('layouts.app')
 
 
@@ -812,7 +817,8 @@ So, let's create following files:
 @endsection
 ```
 
-```resources/views/roles/index.blade.php
+#### resources/views/roles/index.blade.php
+```
 @extends('layouts.app')
 
 
@@ -871,7 +877,8 @@ So, let's create following files:
 @endsection
 ```
 
-```resources/views/roles/create.blade.php
+#### resources/views/roles/create.blade.php
+```
 @extends('layouts.app')
 
 
@@ -930,7 +937,8 @@ So, let's create following files:
 @endsection
 ```
 
-```resources/views/roles/edit.blade.php
+#### resources/views/roles/edit.blade.php
+```
 @extends('layouts.app')
 
 
@@ -989,7 +997,8 @@ So, let's create following files:
 <p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
 ```
 
-```resources/views/roles/show.blade.php
+#### resources/views/roles/show.blade.php
+```
 @extends('layouts.app')
 
 
@@ -1039,14 +1048,6 @@ In this step we will create seeder for permissions, Right now we have fixed perm
 
 4.role-delete
 
-5.product-list
-
-6.product-create
-
-7.product-edit
-
-8.product-delete
-
 So, first create seeder using bellow command:
 
 ```
@@ -1079,10 +1080,6 @@ class PermissionTableSeeder extends Seeder
            'role-create',
            'role-edit',
            'role-delete',
-           'product-list',
-           'product-create',
-           'product-edit',
-           'product-delete'
         ];
      
         foreach ($permissions as $permission) {

@@ -14,6 +14,8 @@
 
 https://github.com/MohosinMiah/Permission-and-Role-Base-User-Management-System/blob/main/Laravel%208%20User%20Roles%20and%20Permissions%20Tutorial%20-%20ItSolutionStuff.com.pdf
 
+https://www.itsolutionstuff.com/post/laravel-8-user-roles-and-permissions-tutorialexample.html#google_vignette
+
 ## Laravel 8 User Roles and Permissions Tutorial
 
 ### Step 1: composer create-project --prefer-dist laravel/laravel blog
